@@ -10,10 +10,10 @@ class Base64
 {
 public:
 	// Returns encoded string
-	static std::string encode(std::string input);
+	static std::string encode(const std::string &input);
 
 	// Returns decoded string
-	static std::string decode(std::string input);
+	static std::string decode(const std::string &input);
 
 private:
 	// Stores Base64 symbols table

@@ -2,7 +2,7 @@
 
 const std::string Base64::CODES = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
 
-std::string Base64::encode(std::string input) {
+std::string Base64::encode(const std::string &input) {
 	size_t length = input.length();
 	uchar B64code;
 	std::string output;
@@ -33,19 +33,17 @@ std::string Base64::encode(std::string input) {
 	return output;
 }
 
-std::string Base64::decode(std::string input) {
+std::string Base64::decode(const std::string &input) {
 	size_t length = input.length();
 	uchar UTF8code;
 	uchar B64code[4];
 	std::string output;
-	try {
+	/*try {*/
 		if (length % 4 != 0)
-			throw "Длина входной строки должна быть кратна 4";
-	}
-	catch (const char* i) {
-		std::cout << i << std::endl;
-		return "";
-	}
+			throw 1;
+	/*}
+	catch (...) {
+	}*/
 	for (size_t i = 0; i < length; i += 4) {
 		B64code[0] = (uchar)Base64::CODES.find(input[i]);
 		B64code[1] = (uchar)Base64::CODES.find(input[i + 1]);
